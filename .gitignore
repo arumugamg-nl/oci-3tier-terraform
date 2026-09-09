@@ -1,0 +1,19 @@
+# Terraform working directory (downloaded providers, hundreds of MB)
+**/.terraform/*
+
+# State files - contain your infrastructure details in PLAINTEXT
+*.tfstate
+*.tfstate.*
+
+# Variable files - these will hold your OCIDs and key paths
+*.tfvars
+*.tfvars.json
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Keys and wallets - never commit these
+*.pem
+*.ppk
+Wallet_*.zip
