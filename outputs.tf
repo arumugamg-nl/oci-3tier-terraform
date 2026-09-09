@@ -1,14 +1,11 @@
 output "vcn_id" {
-  description = "OCID of the VCN"
-  value       = oci_core_vcn.main.id
+  value = module.network.vcn_id
 }
 
 output "public_subnet_id" {
-  description = "OCID of the public subnet"
-  value       = oci_core_subnet.public.id
+  value = module.network.public_subnet_id
 }
 
 output "private_subnet_id" {
-  description = "OCID of the private subnet"
-  value       = oci_core_subnet.private.id
+  value = module.network.private_subnet_id
 }
