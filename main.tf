@@ -16,3 +16,11 @@ module "compute" {
   ssh_public_key    = var.ssh_public_key
   app_node_count    = var.app_node_count
 }
+
+module "loadbalancer" {
+  source = "./modules/loadbalancer"
+
+  compartment_ocid = var.compartment_ocid
+  public_subnet_id = module.network.public_subnet_id
+  backend_ips      = module.compute.app_private_ips
+}

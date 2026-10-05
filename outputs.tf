@@ -17,3 +17,7 @@ output "bastion_public_ip" {
 output "app_private_ips" {
   value = module.compute.app_private_ips
 }
+
+output "lb_public_ip" {
+  value = module.loadbalancer.lb_public_ip
+}
