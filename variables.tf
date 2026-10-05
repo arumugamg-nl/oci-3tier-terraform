@@ -45,3 +45,14 @@ variable "private_subnet_cidr" {
   type        = string
   default     = "10.0.2.0/24"
 }
+
+variable "ssh_public_key" {
+  description = "OpenSSH-format public key for instance access"
+  type        = string
+}
+
+variable "app_node_count" {
+  description = "Number of application nodes"
+  type        = number
+  default     = 2
+}

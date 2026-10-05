@@ -7,52 +7,12 @@ module "network" {
   private_subnet_cidr = var.private_subnet_cidr
 }
 
-moved {
-  from = oci_core_vcn.main
-  to   = module.network.oci_core_vcn.main
-}
+module "compute" {
+  source = "./modules/compute"
 
-moved {
-  from = oci_core_internet_gateway.igw
-  to   = module.network.oci_core_internet_gateway.igw
-}
-
-moved {
-  from = oci_core_nat_gateway.natgw
-  to   = module.network.oci_core_nat_gateway.natgw
-}
-
-moved {
-  from = oci_core_service_gateway.sgw
-  to   = module.network.oci_core_service_gateway.sgw
-}
-
-moved {
-  from = oci_core_route_table.public
-  to   = module.network.oci_core_route_table.public
-}
-
-moved {
-  from = oci_core_route_table.private
-  to   = module.network.oci_core_route_table.private
-}
-
-moved {
-  from = oci_core_security_list.public
-  to   = module.network.oci_core_security_list.public
-}
-
-moved {
-  from = oci_core_security_list.private
-  to   = module.network.oci_core_security_list.private
-}
-
-moved {
-  from = oci_core_subnet.public
-  to   = module.network.oci_core_subnet.public
-}
-
-moved {
-  from = oci_core_subnet.private
-  to   = module.network.oci_core_subnet.private
+  compartment_ocid  = var.compartment_ocid
+  public_subnet_id  = module.network.public_subnet_id
+  private_subnet_id = module.network.private_subnet_id
+  ssh_public_key    = var.ssh_public_key
+  app_node_count    = var.app_node_count
 }
